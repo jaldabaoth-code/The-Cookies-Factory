@@ -4,28 +4,28 @@
 ?>
 <section class="cookies container-fluid">
     <div class="row">
-        <h2>Votre Panier</h2>
-        <p>Résumé de vos achats</p>
+        <h2>Your basket</h2>
+        <p>Summary of your purchases</p>
         <table class="table">
             <thead>
                 <tr>
                     <th>Article</th>
-                    <th>Nombre</th>
+                    <th>Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    if (empty($_COOKIE["panier"])) : ?>
+                    if (empty($_COOKIE["basket"])) : ?>
                 <tr>
-                    <td>Vous n'avez pas d'article!</td>
+                    <td>You don't have any article in your basket!</td>
                 </tr>
                 <?php else : 
                     $i = 0;
                     foreach ($catalog as $id => $cookie) { ?>
                         <tr>
-                            <?php if (!empty($_COOKIE['panier'][$number[$i]])) { ?>
+                            <?php if (!empty($_COOKIE['basket'][$number[$i]])) { ?>
                                 <td><?= $cookie['name']; ?></td>
-                                <td><?= $_COOKIE['panier'][$number[$i]]; ?></tr>
+                                <td><?= $_COOKIE['basket'][$number[$i]]; ?></tr>
                             <?php } ?>
                         </tr>
                     <?php $i++; ?>

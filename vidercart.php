@@ -1,7 +1,6 @@
 <?php
-
-setCookie("panier[pecanNuts]", '', -1);
-setCookie("panier[chocolateCookie]", '', -1);
-setCookie("panier[mmsCookies]", '', -1);
-setCookie("panier[chocolateChips]", '', -1);
-header ("location: index.php");
+    setCookie("basket[pecanNuts]", '', -1);
+    setCookie("basket[chocolateCookie]", '', -1);
+    setCookie("basket[mmsCookies]", '', -1);
+    setCookie("basket[chocolateChips]", '', -1);
+    header("Location: index.php");

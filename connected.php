@@ -1,5 +1,4 @@
 <?php
-
-if (empty($_SESSION["login"])) {
-    header("location: login.php");
-}
+    if (empty($_SESSION["login"])) {
+        header("Location: login.php");
+    }

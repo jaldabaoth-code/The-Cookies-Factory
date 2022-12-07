@@ -1,48 +1,47 @@
 <?php
-
-if (!empty($_GET['add_to_cart'])) {
-    switch ($_GET["add_to_cart"]) {
-        case "46":
-            if (empty($_COOKIE['panier']['pecanNuts'])) {
-                setCookie("panier[pecanNuts]", 1);
-                header ("location: index.php");
+    if (!empty($_GET['add_to_cart'])) {
+        switch ($_GET["add_to_cart"]) {
+            case "46":
+                if (empty($_COOKIE['basket']['pecanNuts'])) {
+                    setCookie("basket[pecanNuts]", 1);
+                    header("Location: index.php");
+                    break;
+                }
+                $_COOKIE['basket']["pecanNuts"]++;
+                setCookie("basket[pecanNuts]",$_COOKIE["basket"]["pecanNuts"]);
                 break;
-            }
-            $_COOKIE['panier']["pecanNuts"]++;
-            setCookie("panier[pecanNuts]",$_COOKIE["panier"]["pecanNuts"]);
-            break;
-        case "36":
-            if (empty($_COOKIE['panier']['chocolateChips'])) {
-                setCookie("panier[chocolateChips]", 1);
-                header ("location: index.php");
+            case "36":
+                if (empty($_COOKIE['basket']['chocolateChips'])) {
+                    setCookie("basket[chocolateChips]", 1);
+                    header("Location: index.php");
+                    break;
+                }
+                $_COOKIE['basket']["chocolateChips"]++;
+                setCookie("basket[chocolateChips]",$_COOKIE["basket"]["chocolateChips"]);
                 break;
-            }
-            $_COOKIE['panier']["chocolateChips"]++;
-            setCookie("panier[chocolateChips]",$_COOKIE["panier"]["chocolateChips"]);
-            break;
-        case "58":
-            if (empty($_COOKIE['panier']['chocolateCookie'])) {
-                setCookie("panier[chocolateCookie]", 1);
-                header ("location: index.php");
+            case "58":
+                if (empty($_COOKIE['basket']['chocolateCookie'])) {
+                    setCookie("basket[chocolateCookie]", 1);
+                    header("Location: index.php");
+                    break;
+                }
+                $_COOKIE['basket']["chocolateCookie"]++;
+                setCookie("basket[chocolateCookie]",$_COOKIE["basket"]["chocolateCookie"]);
                 break;
-            }
-            $_COOKIE['panier']["chocolateCookie"]++;
-            setCookie("panier[chocolateCookie]",$_COOKIE["panier"]["chocolateCookie"]);
-            break;
-        case "32":
-            if (empty($_COOKIE['panier']['mmsCookies'])) {
-                setCookie("panier[mmsCookies]", 1);
-                header ("location: index.php");
+            case "32":
+                if (empty($_COOKIE['basket']['mmsCookies'])) {
+                    setCookie("basket[mmsCookies]", 1);
+                    header("Location: index.php");
+                    break;
+                }
+                $_COOKIE['basket']["mmsCookies"]++;
+                setCookie("basket[mmsCookies]",$_COOKIE["basket"]["mmsCookies"]);
                 break;
-            }
-            $_COOKIE['panier']["mmsCookies"]++;
-            setCookie("panier[mmsCookies]",$_COOKIE["panier"]["mmsCookies"]);
-            break;
+        }
     }
-}
-require "include/head.php";
-require "connected.php";
-require "include/data/products.php";
+    require "include/head.php";
+    require "connected.php";
+    require "include/data/products.php";
 ?>
 <section class="cookies container-fluid">
     <div class="row">
@@ -55,8 +54,8 @@ require "include/data/products.php";
                         <figcaption class="caption">
                             <h3><?= $cookie['name']; ?></h3>
                             <h4>
-                                <?php if (isset($_COOKIE['panier'][$number[$i]])) {
-                                    echo $_COOKIE['panier'][$number[$i]];
+                                <?php if (isset($_COOKIE['basket'][$number[$i]])) {
+                                    echo $_COOKIE['basket'][$number[$i]];
                                 } 
                                 $i++;?>
                             </h4>
